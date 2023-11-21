@@ -3,12 +3,14 @@
  * @Author: Bruce Hsu
  * @Description: 
  */
-import { SafeAreaView, Text, View, Image, TouchableOpacity } from "react-native";
+import { SafeAreaView, Text, View, Image, TouchableOpacity, TextInput } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useLayoutEffect } from "react";
 import {
   ChevronDownIcon,
-  UserIcon
+  UserIcon,
+  AdjustmentsVerticalIcon,
+  MagnifyingGlassIcon
 } from "react-native-heroicons/outline";
 
 const HomeScreen = () => {
@@ -42,6 +44,19 @@ const HomeScreen = () => {
           <UserIcon size={35} color="#00CCBB"/>
         </TouchableOpacity>
       </View>
+      {/* header end */}
+
+      {/* search  */}
+      <View className="flex-row items-center space-x-2 mx-4 pb-2">
+        <View className="flex-row space-x-2 bg-gray-200 p-3 flex-1">
+          <MagnifyingGlassIcon size={20} color="gray"/>
+          <TextInput 
+            placeholder="请输入你感兴趣的门店"
+          />
+        </View>
+        <AdjustmentsVerticalIcon color="#00CCBB"/>
+      </View>
+      {/* search end */}
     </SafeAreaView>
   )
 }
