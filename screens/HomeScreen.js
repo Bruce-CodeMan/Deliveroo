@@ -3,7 +3,7 @@
  * @Author: Bruce Hsu
  * @Description: 
  */
-import { SafeAreaView, Text, View, Image, TouchableOpacity, TextInput } from "react-native";
+import { SafeAreaView, Text, View, Image, TouchableOpacity, TextInput, ScrollView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useLayoutEffect } from "react";
 import {
@@ -12,6 +12,9 @@ import {
   AdjustmentsVerticalIcon,
   MagnifyingGlassIcon
 } from "react-native-heroicons/outline";
+
+// Custom Imports
+import Categories from "../components/Categories";
 
 const HomeScreen = () => {
 
@@ -57,6 +60,12 @@ const HomeScreen = () => {
         <AdjustmentsVerticalIcon color="#00CCBB"/>
       </View>
       {/* search end */}
+
+      {/* body start */}
+      <ScrollView className="bg-gray-100">
+        <Categories />
+      </ScrollView>
+      {/* body end */}
     </SafeAreaView>
   )
 }
