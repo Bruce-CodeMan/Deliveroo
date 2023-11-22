@@ -15,6 +15,7 @@ import {
 
 // Custom Imports
 import Categories from "../components/Categories";
+import FeaturedRow from "../components/FeaturedRow";
 
 const HomeScreen = () => {
 
@@ -64,6 +65,12 @@ const HomeScreen = () => {
       {/* body start */}
       <ScrollView className="bg-gray-100">
         <Categories />
+
+        <FeaturedRow 
+          id="1"
+          title="Featured 1"
+          description="这是Featured 1"
+        />
       </ScrollView>
       {/* body end */}
     </SafeAreaView>
