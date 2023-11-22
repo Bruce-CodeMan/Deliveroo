@@ -5,17 +5,20 @@
  */
 import { View, Image, ScrollView, TouchableOpacity, Text } from "react-native";
 import { useRoute, useNavigation } from "@react-navigation/native"
-import { useLayoutEffect } from "react"
+import { useLayoutEffect, useEffect } from "react"
 import { ArrowLeftIcon, MapPinIcon, QuestionMarkCircleIcon, ChevronRightIcon } from "react-native-heroicons/outline"
 import { StarIcon } from "react-native-heroicons/solid"
+import { useDispatch } from "react-redux"
 
 // Custom Imports
 import DishRow from "../components/DishRow";
 import BasketIcon from "../components/BasketIcon";
+import { setRestaurant } from "../stores/restaurantSlice";
 
 const RestaurantScreen = () => {
 
   const navigation = useNavigation()
+  const dispatch = useDispatch()
 
   const {
     params: {
@@ -34,6 +37,18 @@ const RestaurantScreen = () => {
       headerShown: false
     })
   })
+
+  useEffect(() => {
+    dispatch(setRestaurant({
+      id,
+      imgUrl,
+      title,
+      rating,
+      genre,
+      address,
+      short_description
+    }))
+  }, [dispatch])
 
   return (
     <>
