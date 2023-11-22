@@ -11,6 +11,7 @@ import { StarIcon } from "react-native-heroicons/solid"
 
 // Custom Imports
 import DishRow from "../components/DishRow";
+import BasketIcon from "../components/BasketIcon";
 
 const RestaurantScreen = () => {
 
@@ -35,6 +36,8 @@ const RestaurantScreen = () => {
   })
 
   return (
+    <>
+    <BasketIcon />
     <ScrollView>
       <View className="relative">
         {/* imgUrl start */}
@@ -85,19 +88,35 @@ const RestaurantScreen = () => {
         </View>
         {/* description end */}
 
-        <View>
+        <View className="pb-36">
           <Text className="px-4 pt-6 mb-3 font-bold text-xl">Menu</Text>
           {/* dish start */}
           <DishRow 
+            id="1"
             name="可乐鸡翅"
             description="超级好吃"
             price={29}
+            imgUrl="https://links.papareact.com/gn7"
+          />
+          <DishRow
+            id="2" 
+            name="鸡腿"
+            description="超级好吃+1"
+            price={15}
+            imgUrl="https://links.papareact.com/gn7"
+          />
+          <DishRow
+            id="3" 
+            name="羊肉串"
+            description="超级好吃+1"
+            price={10}
             imgUrl="https://links.papareact.com/gn7"
           />
           {/* dish end */}
         </View>
       </View>
     </ScrollView>
+    </>
   )
 
 }
