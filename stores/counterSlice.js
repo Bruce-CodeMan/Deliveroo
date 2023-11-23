@@ -5,6 +5,8 @@
  */
 import { createSlice } from "@reduxjs/toolkit"
 
+import { createSelector } from "reselect"
+
 const initialState = {
   items: []
 }
@@ -31,8 +33,10 @@ export const { addToBasket, removeFromBasket } = counterSlice.actions
 
 export const selectBasketItems = (state) => state.basket.items;
 
-export const selectBasketItemsWithId = (state, id) => 
-  state.basket.items.filter((item) => item.id === id);
+export const selectBasketItemsWithId = createSelector(
+  [(state, id) => state.basket.items, (state, id) => id],
+  (items, id) => items.filter((item) => item.id === id)
+)
 
 export const selectBasketTotal = (state) => state.basket.items.reduce((total, item) =>
 total += item.price, 0)
